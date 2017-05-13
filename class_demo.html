@@ -11863,7 +11863,7 @@ I won't be showing much Python until the close to the end of the end of this pre
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><hr></p>
-<h1 id="What-Does-a-Data-Scientist-Do?">What Does a Data Scientist Do?<a class="anchor-link" href="#What-Does-a-Data-Scientist-Do?">&#182;</a></h1><h2 id="Computer-progamming">Computer progamming<a class="anchor-link" href="#Computer-progamming">&#182;</a></h2><p><img src="./images/mr_robot.jpg" align="right" style="width: 500px; margin:0px 50px;"/></p>
+<h1 id="What-Does-a-Data-Scientist-Do?">What Does a Data Scientist Do?<a class="anchor-link" href="#What-Does-a-Data-Scientist-Do?">&#182;</a></h1><h2 id="Computer-programming">Computer programming<a class="anchor-link" href="#Computer-programming">&#182;</a></h2><p><img src="./images/mr_robot.jpg" align="right" style="width: 500px; margin:0px 50px;"/></p>
 <h3 id="What-kind-of-programming?">What kind of programming?<a class="anchor-link" href="#What-kind-of-programming?">&#182;</a></h3><ul>
 <li>Open source</li>
 <li>Languages that have great statistics libraries (R, Python, Scala)
@@ -12396,7 +12396,7 @@ So that's pretty nice. However, it is going to be impossible to really do a visu
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">vector_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">])</span>
-<span class="n">average_a_b</span> <span class="o">=</span> <span class="n">vector_a</span> <span class="o">+</span> <span class="n">vector_b</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">average_a_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">vector_a</span><span class="o">+</span><span class="n">vector_b</span> <span class="p">)</span><span class="o">/</span><span class="mi">2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">average_a_b</span><span class="p">)</span>
 </pre></div>
 
@@ -12410,7 +12410,7 @@ So that's pretty nice. However, it is going to be impossible to really do a visu
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[ 1.    0.25]
+<pre>[ 0.5   0.25]
 </pre>
 </div>
 </div>
@@ -12645,8 +12645,8 @@ So that's pretty nice. However, it is going to be impossible to really do a visu
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Our-model-does-not-have-the-vocabulary-of-Google-News,-but-it-has-clearly-learned-a-few-interesting-relationships.">Our model does not have the vocabulary of Google News, but it has clearly learned a few interesting relationships.<a class="anchor-link" href="#Our-model-does-not-have-the-vocabulary-of-Google-News,-but-it-has-clearly-learned-a-few-interesting-relationships.">&#182;</a></h1><p>We now have 2 models.</p>
 <ul>
-<li>The first model has been trained with billions of words (over a million unique) with Google News data.</li>
-<li>The second model has been trained with over a million words using Twitter data.</li>
+<li>One model has been trained with billions of words (over a million unique) with Google News data.</li>
+<li>The other model has been trained with over a million words using Twitter data.</li>
 </ul>
 <p>This is an interesting case to compare the amount of training data vs. the domain of the training data (also worth noting is that I'm sure the Google data scientists tuned the heck out of their model, where I took some "off the shelf" tuning parameters, so there's that).</p>
 
@@ -12666,12 +12666,21 @@ So that's pretty nice. However, it is going to be impossible to really do a visu
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="First,-Let's-Look-at-Our-Model-Build-From-Twitter-Data">First, Let's Look at Our Model Build From Twitter Data<a class="anchor-link" href="#First,-Let's-Look-at-Our-Model-Build-From-Twitter-Data">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let&#39;s start by adding a 300-D word vector for every Tweet you guys sent out.l</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let&#39;s start by adding a 300-D word vector for every Tweet you guys sent out.</span>
 <span class="n">tweets1</span> <span class="o">=</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">append_word_vector_cols</span><span class="p">(</span><span class="n">tweets</span><span class="p">,</span><span class="n">morton_model</span><span class="p">,</span><span class="n">text_col</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
 <span class="n">tweets1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -13045,6 +13054,15 @@ So that's pretty nice. However, it is going to be impossible to really do a visu
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Now-Let's-Look-at-the-Model-Trained-with-Google-News-Data">Now Let's Look at the Model Trained with Google News Data<a class="anchor-link" href="#Now-Let's-Look-at-the-Model-Trained-with-Google-News-Data">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
